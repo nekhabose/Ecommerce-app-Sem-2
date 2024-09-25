@@ -3,6 +3,7 @@
   <!-- Define Persistence Unit -->
   
   <persistence-unit name="itmd4515testPU" transaction-type="RESOURCE_LOCAL">
+     
     <class>edu.iit.sat.itmd4515.nbose1.domain.Product</class>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
