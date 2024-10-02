@@ -25,16 +25,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderLine> orderLines = new ArrayList<>();
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    @FutureOrPresent
+    //@FutureOrPresent
     private Date orderDate;
 
     // Constructors

@@ -1,5 +1,7 @@
 edu\iit\sat\itmd4515\nbose1\PetJPARelationshipTest.class
 edu\iit\sat\itmd4515\nbose1\ProductJPATest.class
 edu\iit\sat\itmd4515\nbose1\AbstractJPATest.class
+edu\iit\sat\itmd4515\nbose1\OrderLineJPATest.class
 edu\iit\sat\itmd4515\nbose1\PetJPATest.class
 edu\iit\sat\itmd4515\nbose1\ProductValidationTest.class
+edu\iit\sat\itmd4515\nbose1\CustomerOrderJPATest.class

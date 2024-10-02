@@ -84,7 +84,7 @@ public class CustomerServlet extends HttpServlet {
        LOG.info("custCreateDateParam:\t\t\t\t" + custCreateDateParam);
        
        
-       Customer customer = new Customer();
+       Customer_lab3 customer = new Customer_lab3();
 
        if(custIdParam != null && !custIdParam.isBlank()){
           customer.setCustomerId(Integer.valueOf(custIdParam));
@@ -121,12 +121,12 @@ public class CustomerServlet extends HttpServlet {
        }
        LOG.info("Built Customer:" + customer.toString());
       
-       Set<ConstraintViolation<Customer>>violations = validator.validate(customer);
+       Set<ConstraintViolation<Customer_lab3>>violations = validator.validate(customer);
        
        if (violations.size() > 0)
        {
            LOG.info("Customer has failed validation");
-           for (ConstraintViolation<Customer> violation: violations)
+           for (ConstraintViolation<Customer_lab3> violation: violations)
        {
            LOG.info(violation.getPropertyPath()+ " " + violation.getMessage());
        }
@@ -151,7 +151,7 @@ public class CustomerServlet extends HttpServlet {
        
     }
     
-    private void createACustomerWithJPA(Customer c)
+    private void createACustomerWithJPA(Customer_lab3 c)
     {
         try {
             try {
@@ -178,7 +178,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-   private void insertTestCustomer(Customer customer) {
+   private void insertTestCustomer(Customer_lab3 customer) {
         String query = "INSERT INTO customer (customer_id, store_id, first_name, last_name, email,address_id,active,create_date)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {

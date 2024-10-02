@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.iit.sat.itmd4515.nbose1.PetJPATest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.805 s <<< FAILURE! -- in edu.iit.sat.itmd4515.nbose1.PetJPATest
-edu.iit.sat.itmd4515.nbose1.PetJPATest.readTest -- Time elapsed: 0.006 s <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.696 s <<< FAILURE! -- in edu.iit.sat.itmd4515.nbose1.PetJPATest
+edu.iit.sat.itmd4515.nbose1.PetJPATest.readTest -- Time elapsed: 0.002 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)
@@ -33,7 +33,7 @@ Exception Description: Problem compiling [select p from Pet p where p.name = 'TE
 		at org.eclipse.persistence.internal.jpa.EntityManagerImpl.createQuery(EntityManagerImpl.java:1726)
 		... 5 more
 
-edu.iit.sat.itmd4515.nbose1.PetJPATest.updateTest -- Time elapsed: 0.004 s <<< ERROR!
+edu.iit.sat.itmd4515.nbose1.PetJPATest.updateTest -- Time elapsed: 0.002 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)
@@ -64,7 +64,7 @@ Exception Description: Problem compiling [select p from Pet p where p.name = 'TE
 		at org.eclipse.persistence.internal.jpa.EntityManagerImpl.createQuery(EntityManagerImpl.java:1726)
 		... 5 more
 
-edu.iit.sat.itmd4515.nbose1.PetJPATest.createTest -- Time elapsed: 0.003 s <<< ERROR!
+edu.iit.sat.itmd4515.nbose1.PetJPATest.createTest -- Time elapsed: 0.002 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)
@@ -95,7 +95,7 @@ Exception Description: Problem compiling [select p from Pet p where p.name = 'TE
 		at org.eclipse.persistence.internal.jpa.EntityManagerImpl.createQuery(EntityManagerImpl.java:1726)
 		... 5 more
 
-edu.iit.sat.itmd4515.nbose1.PetJPATest.deleteTest -- Time elapsed: 0.004 s <<< ERROR!
+edu.iit.sat.itmd4515.nbose1.PetJPATest.deleteTest -- Time elapsed: 0.002 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)

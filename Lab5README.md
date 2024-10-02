@@ -20,3 +20,19 @@ This relationship is unidirectional, meaning only the OrderLine entity knows abo
 
 The OrderLine entity has a reference to the Product, showing which product was ordered.
 The Product entity does not reference the OrderLine, so it doesn't "know" which orders include it.
+
+**Relationship Testing Summary:**
+
+Uni-directional Relationship: In the OrderLineJPATest, we tested the uni-directional relationship between Order and OrderLine. 
+Here, the Order knows about its OrderLines, but the OrderLine doesn't hold a reference back to the Order. We confirmed that after
+saving the Order, it contains the correct number of OrderLines, and each OrderLine is linked to the right Product. This ensures 
+the one-way relationship is working as expected.
+
+![OrderLineJPATest](./OrderLineJPATest.png)
+
+Bi-directional Relationship: In the CustomerOrderJPATest, we focused on the bi-directional relationship between Customer and 
+Order. In this case, both the Customer and Order are aware of each other. The tests show that when a Customer is saved, the 
+associated Order is also saved, and both entities maintain their connection to each other. We verified this by checking that 
+the Customer includes its Order, and the Order knows its Customer.
+
+![CustomerOrderJPATest](./CustomerOrderJPATest.png)

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.478 s <<< FAILURE! -- in edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest
-edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest.biDirectionalTestCase -- Time elapsed: 0.260 s <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.644 s <<< FAILURE! -- in edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest
+edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest.biDirectionalTestCase -- Time elapsed: 0.010 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)
@@ -33,7 +33,7 @@ Exception Description: Problem compiling [select p from Pet p where p.name = 'TE
 		at org.eclipse.persistence.internal.jpa.EntityManagerImpl.createQuery(EntityManagerImpl.java:1726)
 		... 5 more
 
-edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest.uniDirectionalTestCase -- Time elapsed: 0.005 s <<< ERROR!
+edu.iit.sat.itmd4515.nbose1.PetJPARelationshipTest.uniDirectionalTestCase -- Time elapsed: 0.001 s <<< ERROR!
 java.lang.IllegalArgumentException: Object: Pet{id=null, name=TEST DATA, birthDate=2020-12-12, type=CAT} is not a known Entity type.
 	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4425)
 	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:599)
