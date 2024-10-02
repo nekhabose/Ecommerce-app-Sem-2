@@ -68,14 +68,14 @@ public class CustomerOrderJPATest {
         tx.commit();
 
         Customer readBackFromDatabase = em.find(Customer.class, customer.getId());
-        assertNotNull(readBackFromDatabase);  // Check that the customer was persisted
-        assertEquals(1, readBackFromDatabase.getOrders().size());  // Ensure the order was also persisted
+        assertNotNull(readBackFromDatabase);  
+        assertEquals(1, readBackFromDatabase.getOrders().size());  
     }
 
     @Test
     public void readTest() {
         Customer customer = em.createQuery("select c from Customer c where c.name = 'Pranav saji'", Customer.class).getSingleResult();
-        assertNotNull(customer);  // Ensure customer was found
+        assertNotNull(customer);  
         assertEquals("psaji@hawk.edu", customer.getEmail());  
         assertEquals(1, customer.getOrders().size());  
     }
@@ -101,14 +101,14 @@ public class CustomerOrderJPATest {
     @Test
     public void deleteTest() {
         Customer customer = em.createQuery("select c from Customer c where c.name = 'Pranav saji'", Customer.class).getSingleResult();
-        assertNotNull(customer);  // Ensure customer exists
+        assertNotNull(customer);  
 
         tx.begin();
         em.remove(customer);
         tx.commit();
 
         Customer deletedCustomer = em.find(Customer.class, customer.getId());
-        assertNull(deletedCustomer);  // Ensure the customer was deleted
+        assertNull(deletedCustomer);  
     }
 
     @AfterEach
@@ -116,9 +116,9 @@ public void afterEach() {
     List<Customer> customers = em.createQuery("select c from Customer c where c.name = 'Pranav saji'", Customer.class).getResultList();
     
     if (!customers.isEmpty()) {
-        Customer customer = customers.get(0);  // Get the first customer
+        Customer customer = customers.get(0);  
         tx.begin();
-        em.remove(customer);  // Clean up customer after tests
+        em.remove(customer);  
         tx.commit();
     }
     em.close();

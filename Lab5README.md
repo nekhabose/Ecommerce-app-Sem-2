@@ -36,3 +36,10 @@ associated Order is also saved, and both entities maintain their connection to e
 the Customer includes its Order, and the Order knows its Customer.
 
 ![CustomerOrderJPATest](./CustomerOrderJPATest.png)
+
+**************
+
+Introducing JPA functionality to your existing web application by refactoring your Servlet from Lab 3 to use an EntityManager
+ and UserTransaction instead of JDBC
+
+![Graduate_Requirement](./Graduate_Requirement.png)

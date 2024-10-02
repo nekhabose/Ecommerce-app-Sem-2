@@ -57,9 +57,9 @@ public class OrderLineJPATest {
 
     // Start transaction and persist all entities
     tx.begin();
-    em.persist(customer); // Persist Customer first because of the foreign key constraint
-    em.persist(product);  // Persist Product
-    em.persist(order);    // Persist Order, which also cascades to OrderLine
+    em.persist(customer); 
+    em.persist(product);  
+    em.persist(order);    
     tx.commit();
 }
 
@@ -76,7 +76,7 @@ public void createTest() {
 
     // Create a new Order and associate it with the Customer
     Order order = new Order(new Date());
-    order.setCustomer(customer);  // Associate the order with the customer
+    order.setCustomer(customer); 
 
     // Create an OrderLine and associate it with the Order and Product
     OrderLine orderLine = new OrderLine(product, 2);
@@ -98,25 +98,25 @@ public void createTest() {
 
     // Assert that the order was persisted and has one order line
     assertNotNull(readBackOrder);
-    assertEquals(1, readBackOrder.getOrderLines().size());  // Ensure the order has one order line
-    assertEquals("Tablet", readBackOrder.getOrderLines().get(0).getProduct().getName());  // Ensure product details
+    assertEquals(1, readBackOrder.getOrderLines().size());  
+    assertEquals("Tablet", readBackOrder.getOrderLines().get(0).getProduct().getName());  
 }
 
 
     @Test
 public void readTest() {
     List<Order> orders = em.createQuery("select o from Order o", Order.class).getResultList();
-    assertFalse(orders.isEmpty());  // Ensure at least one order exists
-    Order order = orders.get(0);    // Retrieve the first order
+    assertFalse(orders.isEmpty()); 
+    Order order = orders.get(0);   
     assertNotNull(order);
-    assertEquals(1, order.getOrderLines().size());  // Ensure order has one order line
+    assertEquals(1, order.getOrderLines().size());  
 }
 
 
    @Test
 public void updateTest() {
     List<Order> orders = em.createQuery("select o from Order o", Order.class).getResultList();
-    assertFalse(orders.isEmpty());  // Ensure at least one order exists
+    assertFalse(orders.isEmpty());  
 
     Order order = orders.get(0); // Retrieve the first order
     assertNotNull(order);
@@ -126,14 +126,13 @@ public void updateTest() {
     tx.commit();
 
     OrderLine updatedOrderLine = em.find(OrderLine.class, order.getOrderLines().get(0).getId());
-    assertEquals(5, updatedOrderLine.getQuantity());  // Ensure quantity was updated
+    assertEquals(5, updatedOrderLine.getQuantity()); 
 }
 
    @Test
 public void deleteTest() {
     List<Order> orders = em.createQuery("select o from Order o", Order.class).getResultList();
-    assertFalse(orders.isEmpty());  // Ensure at least one order exists
-
+    assertFalse(orders.isEmpty());  
     Order order = orders.get(0);
     assertNotNull(order);
 
@@ -142,7 +141,7 @@ public void deleteTest() {
     tx.commit();
 
     Order deletedOrder = em.find(Order.class, order.getId());
-    assertNull(deletedOrder);  // Ensure the order was deleted
+    assertNull(deletedOrder);  
 }
 
 
