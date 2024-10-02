@@ -1,6 +1,6 @@
 
-import edu.iit.sat.itmd4515.nbose1.domain.Pet;
-import edu.iit.sat.itmd4515.nbose1.domain.PetType;
+import edu.iit.sat.itmd4515.sample.Pet;
+import edu.iit.sat.itmd4515.sample.PetType;
 import edu.iit.sat.itmd4515.nbose1.domain.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

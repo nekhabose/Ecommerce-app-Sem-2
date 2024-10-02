@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.iit.sat.itmd4515.nbose1.PetJPATest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.276 s -- in edu.iit.sat.itmd4515.nbose1.PetJPATest

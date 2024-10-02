@@ -6,6 +6,8 @@ package edu.iit.sat.itmd4515.nbose1.lab3;
 
 //import jakarta.activation.DataSource;
 import jakarta.annotation.Resource;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,6 +15,12 @@ import java.util.logging.Logger;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.HeuristicMixedException;
+import jakarta.transaction.HeuristicRollbackException;
+import jakarta.transaction.NotSupportedException;
+import jakarta.transaction.RollbackException;
+import jakarta.transaction.SystemException;
+import jakarta.transaction.UserTransaction;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import java.io.IOException;
@@ -39,6 +47,13 @@ public class CustomerServlet extends HttpServlet {
     
     @Resource(name= "java:app/jdbc/itmd4515DS")
     DataSource ds;
+    
+    @PersistenceContext(name = "itmd4515PU")
+    EntityManager em;
+    
+    @Resource
+    UserTransaction tx;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        LOG.info("Inside CustomerServlet.doGet()");
@@ -124,7 +139,8 @@ public class CustomerServlet extends HttpServlet {
        }else
        {
             LOG.info("Customer has passed validation");
-            insertTestCustomer(customer);
+           // insertTestCustomer(customer);
+           createACustomerWithJPA(customer);
             req.setAttribute("customer", customer);
             
             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/conf.jsp");
@@ -133,6 +149,33 @@ public class CustomerServlet extends HttpServlet {
        }
         
        
+    }
+    
+    private void createACustomerWithJPA(Customer c)
+    {
+        try {
+            try {
+                tx.begin();
+            } catch (NotSupportedException ex) {
+                Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SystemException ex) {
+                Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            em.persist(c);
+            tx.commit();
+        } catch (RollbackException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HeuristicMixedException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HeuristicRollbackException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SystemException ex) {
+            Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
    private void insertTestCustomer(Customer customer) {
