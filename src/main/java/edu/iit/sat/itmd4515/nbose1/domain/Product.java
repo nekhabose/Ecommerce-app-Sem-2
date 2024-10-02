@@ -13,6 +13,7 @@ import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
@@ -28,6 +29,7 @@ public class Product {
     private Long id;
 
     @NotNull
+    @Size(min = 1, max = 100)
     private String name;
 
     @DecimalMin("0.0")
@@ -110,7 +112,7 @@ public class Product {
         final Product other = (Product) obj;
         if (this.id == null || other.id == null)
         {
-            
+        return false;      
         }
         
         return Objects.equals(this.id, other.id);

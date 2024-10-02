@@ -10,6 +10,10 @@
     <class>edu.iit.sat.itmd4515.nbose1.domain.Pet</class>
     <class>edu.iit.sat.itmd4515.nbose1.domain.Specilization</class>
     <class>edu.iit.sat.itmd4515.nbose1.domain.Product</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.OrderLine</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.Order</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.Customer</class>
+    
   
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
