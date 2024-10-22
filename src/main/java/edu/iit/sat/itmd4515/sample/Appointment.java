@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
 import jakarta.validation.constraints.FutureOrPresent;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,6 +22,8 @@ import java.util.Objects;
  */
 //itmd4515testPU
 @Entity
+@NamedQuery(name = "Appt.readAll", query = "select a from Appointment a")
+
 public class Appointment {
     
     @Id
@@ -109,6 +112,33 @@ public class Appointment {
     public Appointment(LocalDate date, LocalTime time) {
         this.date = date;
         this.time = time;
+    }
+     public void schedAppt(Owner o, Pet p, Vet v) {
+        this.owner = o;
+        this.vet = v;
+        this.pet = p;
+
+        // manage bi-directional relatinoships
+        if (!o.getAppointments().contains(this)) {
+            o.getAppointments().add(this);
+        }
+        if (!v.getAppointments().contains(this)) {
+            v.getAppointments().add(this);
+        }
+    }
+
+    public void cancelAppt() {
+
+        if (this.owner.getAppointments().contains(this)) {
+            this.owner.getAppointments().remove(this);
+        }
+        if (this.vet.getAppointments().contains(this)) {
+            this.vet.getAppointments().remove(this);
+        }
+
+        this.owner = null;
+        this.vet = null;
+        this.pet = null;
     }
    
     /**

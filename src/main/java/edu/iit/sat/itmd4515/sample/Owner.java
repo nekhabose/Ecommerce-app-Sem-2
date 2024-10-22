@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQuery(name = "Owner.readAll", query = "select o from Owner o")
+
 @Table(name = "owner")
 public class Owner {
 

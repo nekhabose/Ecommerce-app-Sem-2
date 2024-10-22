@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQuery;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -25,6 +26,8 @@ import java.util.Objects;
  * @author Nekha
  */
 @Entity
+@NamedQuery(name = "Pet.readAll", query = "select p from Pet p")
+
 public class Pet {
        
        

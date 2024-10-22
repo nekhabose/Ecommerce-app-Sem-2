@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import java.util.Objects;
 
 /**
@@ -15,6 +16,8 @@ import java.util.Objects;
  * @author Nekha
  */
 @Entity
+@NamedQuery(name = "Specilization.readAll", query = "select s from Specilization s")
+
 public class Specilization {
     
     @Id

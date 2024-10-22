@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -22,6 +23,8 @@ import java.util.Objects;
  * @author Nekha
  */
 @Entity
+@NamedQuery(name = "Vet.readAll", query = "select v from Vet v")
+
 @Table(name = "vet")
 public class Vet {
 
