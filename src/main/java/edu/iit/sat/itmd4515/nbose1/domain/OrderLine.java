@@ -14,6 +14,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
+@NamedQuery(name = "OrderLine.readAll", query = "SELECT ol FROM OrderLine ol")
 public class OrderLine {
 
     @Id

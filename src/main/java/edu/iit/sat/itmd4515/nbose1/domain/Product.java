@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.DecimalMin;
@@ -23,6 +24,7 @@ import java.util.Objects;
  * @author Nekha
  */
 @Entity
+@NamedQuery(name = "Product.readAll", query = "SELECT p FROM Product p")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

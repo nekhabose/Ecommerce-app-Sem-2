@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQuery(name = "Order.readAll", query = "SELECT o FROM Order o")
 @Table(name = "customer_order")
 public class Order {
 

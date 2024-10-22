@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.iit.sat.itmd4515.nbose1.OrderLineJPATest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.468 s -- in edu.iit.sat.itmd4515.nbose1.OrderLineJPATest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.898 s -- in edu.iit.sat.itmd4515.nbose1.OrderLineJPATest

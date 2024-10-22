@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQuery(name = "Customer.readAll", query = "SELECT c FROM Customer c")
 public class Customer {
 
     @Id

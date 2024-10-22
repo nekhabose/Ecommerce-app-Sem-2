@@ -3,24 +3,27 @@
   <!-- Define Persistence Unit -->
   
   <persistence-unit name="itmd4515testPU" transaction-type="RESOURCE_LOCAL">
-    
+   
+    <class>edu.iit.sat.itmd4515.nbose1.domain.Product</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.OrderLine</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.Order</class>
+    <class>edu.iit.sat.itmd4515.nbose1.domain.Customer</class> 
+   <!--
     <class>edu.iit.sat.itmd4515.sample.Appointment</class>
     <class>edu.iit.sat.itmd4515.sample.Owner</class>
     <class>edu.iit.sat.itmd4515.sample.Vet</class>
     <class>edu.iit.sat.itmd4515.sample.Pet</class>
-    <class>edu.iit.sat.itmd4515.sample.Specilization</class>
-    <class>edu.iit.sat.itmd4515.nbose1.domain.Product</class>
-    <class>edu.iit.sat.itmd4515.nbose1.domain.OrderLine</class>
-    <class>edu.iit.sat.itmd4515.nbose1.domain.Order</class>
-    <class>edu.iit.sat.itmd4515.nbose1.domain.Customer</class>
-    
+    <class>edu.iit.sat.itmd4515.sample.Specilization</class> 
+ -->
+   
+   
   
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="jakarta.persistence.jdbc.user" value="itmd4515"/>
       <property name="jakarta.persistence.jdbc.password" value="itmd4515"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/itmd4515?zeroDateTimeBehavior=CONVERT_TO_NULL&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/itmd4515?zeroDateTimeBehavior=CONVERT_TO_NULL&amp;"/>
       <property name="jakarta.persistence.schema-generation.database.action"  value="drop-and-create"/>
     </properties>
-  </persistence-unit>
+   </persistence-unit>
 </persistence>
