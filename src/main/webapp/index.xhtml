@@ -5,39 +5,43 @@
       xmlns:p="jakarta.faces.passthrough"
       xmlns:f="jakarta.faces.core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Create Product</title>
     </h:head>
+
     <h:body>
         <h:form>
-            
             <p>
-            <h:panelGroup layout="block">
-                <h:outputLabel value="Pet Name" for="petName"/>
-                <h:inputText id="petName" value="#{petController.pet.name}"/>
-                
-            </h:panelGroup>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Product Name: " for="productName" />
+                    <h:inputText id="productName" value="#{productController.product.name}"/>
+                    <h:message for="productName" errorStyle="color: red" />
+                </h:panelGroup>
             </p>
-             <p>
-             <h:panelGroup layout="block">
-                <h:outputLabel value="Pet BD" for="petBirthDate"/>
-                <h:inputText p:type="date" id="petBirthDate" value="#{petController.pet.birthDate}">
-                <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
-                </h:inputText>
-            </h:panelGroup>
-            </p>
-            
             <p>
-             <h:panelGroup layout="block">
-                <h:outputLabel value="Pet Type:" for="petType"/>
-                <h:selectOneMenu id="PetType" value="#{petController.pet.type}">
-                    <f:selectItem itemLabel="Cat" itemValue="CAT"/>
-                    <f:selectItem itemLabel="Dog" itemValue="DOG"/>
-                    <f:selectItem itemLabel="Bird" itemValue="BIRD"/>
-                </h:selectOneMenu>
-            </h:panelGroup>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Price: " for="productPrice" />
+                    <h:inputText id="productPrice" value="#{productController.product.price}"/>
+                    <h:message for="productPrice" errorStyle="color: red" />
+                </h:panelGroup>
             </p>
-            
-            <h:commandButton value="Create Pet" action="#{petController.savePet()}"/>
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Manufacture Date: " for="productManufactureDate" />
+                    <h:inputText id="productManufactureDate" value="#{productController.product.manufactureDate}">
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                    </h:inputText>
+                    <h:message for="productManufactureDate" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Stock: " for="productStock" />
+                    <h:inputText id="productStock" value="#{productController.product.stock}"/>
+                    <h:message for="productStock" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+            <h:commandButton value="Create Product" action="#{productController.saveProduct()}" />
         </h:form>
     </h:body>
+
 </html>

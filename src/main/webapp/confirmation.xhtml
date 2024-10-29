@@ -3,14 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html">
     <h:head>
-        <title>Pet Saved</title>
+        <title>Product Saved</title>
     </h:head>
     <h:body>
-        Thankyou for saving your pet!
+        <h2>Thankyou for saving your product!</h2>
         
         <ul>
-            <li> #{petController.pet.name} </li>
-            <li> #{petController.pet.birthDate} </li>
+           <li>ID: #{productController.product.id}</li>
+            <li>Name: #{productController.product.name}</li>
+            <li>Price: #{productController.product.price}</li>
+            <li>Manufacture Date: #{productController.product.manufactureDate}</li>
+            <li>Stock: #{productController.product.stock}</li>
         </ul>
     </h:body>
 </html>
