@@ -10,6 +10,24 @@ package edu.iit.sat.itmd4515.sample;
  */
 public enum PetType {
     
-    CAT,DOG,BIRD;
+    CAT("Catiee"),
+    DOG("Dogiee"),
+    BIRD("Birdiee");
+    
+        private String label;
+
+    private PetType(String label) {
+        this.label = label;
+    }  
+        
+        
+    public String getLabel() {
+        return label;
+    }
+
+    
+    
+   
+
     
 }
