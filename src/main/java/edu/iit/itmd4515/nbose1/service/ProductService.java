@@ -6,6 +6,7 @@ package edu.iit.itmd4515.nbose1.service;
 
 import edu.iit.sat.itmd4515.nbose1.domain.Product;
 import jakarta.ejb.Stateless;
+import jakarta.inject.Named;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Nekha
  */
 @Stateless
+@Named
 public class ProductService extends AbstractService<Product> {
 
     public ProductService() {
