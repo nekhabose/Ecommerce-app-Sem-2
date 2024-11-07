@@ -48,6 +48,9 @@ public class StartupServiceInitDB {
     @EJB UserService userSvc;
     @EJB GroupService groupSvc;
     
+    /**
+     *
+     */
     public StartupServiceInitDB() {
     }
     

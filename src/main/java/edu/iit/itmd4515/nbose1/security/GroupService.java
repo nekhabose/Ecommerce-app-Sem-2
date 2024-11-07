@@ -9,18 +9,26 @@ import jakarta.ejb.Stateless;
 import java.util.List;
 
 /**
- *
+ * Based on the pattern used in the instructor’s example from Lab 8 materials.
  * @author Nekha
  */
 
 @Stateless
 public class GroupService extends AbstractService <Group> {
     
-   public GroupService()
+    /**
+     *
+     */
+    public GroupService()
    {
      super(Group.class);
      
    }
+
+    /**
+     *
+     * @return
+     */
     public List<Group> readAll()
     {
         return super.readAll("Group.findAll");

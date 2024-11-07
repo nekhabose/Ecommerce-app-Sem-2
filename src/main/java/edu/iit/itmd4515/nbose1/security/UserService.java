@@ -9,18 +9,26 @@ import jakarta.ejb.Stateless;
 import java.util.List;
 
 /**
- *
+ *Based on the pattern used in the instructor’s example from Lab 8 materials.
  * @author Nekha
  */
 
 @Stateless
 public class UserService extends AbstractService <User> {
     
-   public UserService()
+    /**
+     *
+     */
+    public UserService()
    {
      super(User.class);
      
    }
+
+    /**
+     *
+     * @return
+     */
     public List<User> readAll()
     {
         return super.readAll("User.findAll");

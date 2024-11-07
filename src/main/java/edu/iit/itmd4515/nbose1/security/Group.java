@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ * Based on the pattern used in the instructor’s example from Lab 8 materials.
  * @author Nekha
  */
 @Entity
@@ -31,15 +31,19 @@ public class Group {
     @ManyToMany(mappedBy = "groups")
     private List<User> users = new ArrayList<>();
 
-   
-
-   
-
+    /**
+     *
+     * @param groupName
+     * @param groupDesc
+     */
     public Group(String groupName, String groupDesc) {
         this.groupName = groupName;
         this.groupDesc = groupDesc;
     }
 
+    /**
+     *
+     */
     public Group() {
     }
     
@@ -100,13 +104,22 @@ public class Group {
         this.groupName = groupName;
     }
     
-     @Override
+    /**
+     *
+     * @return
+     */
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + Objects.hashCode(this.groupName);
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -122,7 +135,11 @@ public class Group {
         return Objects.equals(this.groupName, other.groupName);
     }
     
-     @Override
+    /**
+     *
+     * @return
+     */
+    @Override
     public String toString() {
         return "Group{" + "groupName=" + groupName + ", groupDesc=" + groupDesc + '}';
     }

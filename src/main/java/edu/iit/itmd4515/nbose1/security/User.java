@@ -38,22 +38,36 @@ public class User {
            
     private List<Group> groups= new ArrayList<>();
 
-   
-
+    /**
+     *
+     * @param username
+     * @param password
+     */
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    /**
+     *
+     */
     public User() {
     }
     
+    /**
+     *
+     * @param g
+     */
     public void addGroup(Group g)
     {
         this.groups.add(g);
         g.getUsers().add(this);
     }
     
+    /**
+     *
+     * @param g
+     */
     public void removeGroup(Group g)
     {
         this.groups.remove(g);
@@ -118,11 +132,19 @@ public class User {
         this.username = username;
     }
     
-     @Override
+    /**
+     *Based on the pattern used in the instructor’s example from Lab 8 materials.
+     * @return
+     */
+    @Override
     public String toString() {
         return "User{" + "username=" + username + ", password=" + password + ", groups=" + groups + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -130,6 +152,11 @@ public class User {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

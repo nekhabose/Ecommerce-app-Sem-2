@@ -10,7 +10,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
 /**
- *
+ * Based on the pattern used in the instructor’s example from Lab 8 materials.
  * @author Nekha
  */
 public class UserPasswordHash {
