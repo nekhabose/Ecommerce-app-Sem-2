@@ -44,9 +44,20 @@ public class Product {
     private Integer stock;
 
     // Constructors
+
+    /**
+     *
+     */
     public Product() {
     }
 
+    /**
+     *
+     * @param name
+     * @param price
+     * @param manufactureDate
+     * @param stock
+     */
     public Product(String name, BigDecimal price, Date manufactureDate, Integer stock) {
         this.name = name;
         this.price = price;
@@ -54,45 +65,99 @@ public class Product {
         this.stock = stock;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
-     public void setId(Long id) {
+
+    /**
+     *
+     * @param id
+     */
+    public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
+
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public BigDecimal getPrice() {
         return price;
     }
+
+    /**
+     *
+     * @param price
+     */
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getManufactureDate() {
         return manufactureDate;
     }
-     public void setManufactureDate(Date manufactureDate) {
+
+    /**
+     *
+     * @param manufactureDate
+     */
+    public void setManufactureDate(Date manufactureDate) {
         this.manufactureDate = manufactureDate;
     }
+
+    /**
+     *
+     * @return
+     */
     public Integer getStock() {
         return stock;
     }
-     public void setStock(Integer stock) {
+
+    /**
+     *
+     * @param stock
+     */
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
      
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", manufactureDate=" + manufactureDate + ", stock=" + stock + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -100,6 +165,11 @@ public class Product {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

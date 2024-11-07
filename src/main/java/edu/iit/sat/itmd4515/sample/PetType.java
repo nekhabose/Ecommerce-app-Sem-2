@@ -10,8 +10,19 @@ package edu.iit.sat.itmd4515.sample;
  */
 public enum PetType {
     
+    /**
+     *
+     */
     CAT("Catiee"),
+
+    /**
+     *
+     */
     DOG("Dogiee"),
+
+    /**
+     *
+     */
     BIRD("Birdiee");
     
         private String label;
@@ -20,7 +31,10 @@ public enum PetType {
         this.label = label;
     }  
         
-        
+    /**
+     *
+     * @return
+     */
     public String getLabel() {
         return label;
     }

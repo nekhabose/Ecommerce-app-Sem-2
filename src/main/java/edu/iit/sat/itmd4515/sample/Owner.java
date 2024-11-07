@@ -4,6 +4,7 @@
  */
 package edu.iit.sat.itmd4515.sample;
 
+import edu.iit.itmd4515.nbose1.security.User;
 import jakarta.persistence.Entity;
 
 /**
@@ -16,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ *
+ * @author Nekha
+ */
 @Entity
 @NamedQuery(name = "Owner.readAll", query = "select o from Owner o")
 
@@ -44,6 +49,29 @@ public class Owner {
                joinColumns = @JoinColumn(name = "OWNER_ID"),
                inverseJoinColumns = @JoinColumn(name = "PET_ID"))
     private List<Pet> pets= new ArrayList<>();
+    
+    @OneToOne
+    @JoinColumn(name = "USERNAME")
+     private User user;
+
+    /**
+     * Get the value of user
+     *
+     * @return the value of user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @param user new value of user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     
      /**
      * ManyToOne/ OneToMany bi-directional relationship*
@@ -93,17 +121,27 @@ public class Owner {
         this.pets = pets;
     }
 
+    /**
+     *
+     */
     public Owner()
     {
     }
    
+    /**
+     *
+     * @param name
+     * @param email
+     */
     public Owner(String name, String email) {
         this.name = name;
         this.email = email;
     }
     
-    
-    
+    /**
+     *
+     * @param p
+     */
     public void addOwnerPet(Pet p)
     {
         if(!this.pets.contains(p))
@@ -115,6 +153,11 @@ public class Owner {
             p.getOwners().add(this);
        }
     }
+
+    /**
+     *
+     * @param p
+     */
     public void removeOwnerPet(Pet p)
     {
         if(!this.pets.contains(p))
@@ -147,22 +190,43 @@ public class Owner {
 
 
     // Getters and setters
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -170,6 +234,11 @@ public class Owner {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -189,6 +258,10 @@ public class Owner {
         return Objects.equals(this.id, other.id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Owner{" + "id=" + id + ", name=" + name + ", email=" + email + ", pets=" + pets + '}';

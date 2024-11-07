@@ -17,6 +17,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ *
+ * @author Nekha
+ */
 @Entity
 @NamedQuery(name = "Order.readAll", query = "SELECT o FROM Order o")
 @Table(name = "customer_order")
@@ -39,61 +43,118 @@ public class Order {
     private Date orderDate;
 
     // Constructors
+
+    /**
+     *
+     */
     public Order() {
     }
 
+    /**
+     *
+     * @param orderDate
+     */
     public Order(Date orderDate) {
         this.orderDate = orderDate;
     }
 
     // Getters and Setters
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Customer getCustomer() {
         return customer;
     }
 
+    /**
+     *
+     * @param customer
+     */
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getOrderDate() {
         return orderDate;
     }
 
+    /**
+     *
+     * @param orderDate
+     */
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<OrderLine> getOrderLines() {
         return orderLines;
     }
 
+    /**
+     *
+     * @param orderLines
+     */
     public void setOrderLines(List<OrderLine> orderLines) {
         this.orderLines = orderLines;
     }
 
+    /**
+     *
+     * @param orderLine
+     */
     public void addOrderLine(OrderLine orderLine) {
         orderLines.add(orderLine);
         orderLine.setOrder(this);
     }
 
+    /**
+     *
+     * @param orderLine
+     */
     public void removeOrderLine(OrderLine orderLine) {
         orderLines.remove(orderLine);
         orderLine.setOrder(null);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Order{" + "id=" + id + ", orderDate=" + orderDate + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -101,6 +162,11 @@ public class Order {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

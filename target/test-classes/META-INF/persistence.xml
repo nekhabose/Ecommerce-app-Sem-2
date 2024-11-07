@@ -8,6 +8,12 @@
     <class>edu.iit.sat.itmd4515.nbose1.domain.OrderLine</class>
     <class>edu.iit.sat.itmd4515.nbose1.domain.Order</class>
     <class>edu.iit.sat.itmd4515.nbose1.domain.Customer</class> 
+    <class>edu.iit.sat.itmd4515.sspyriso.domain.Pet</class>
+    <class>edu.iit.sat.itmd4515.sspyriso.domain.Owner</class>
+    <class>edu.iit.sat.itmd4515.sspyriso.domain.Vet</class>
+       
+    <class>edu.iit.sat.itmd4515.sspyriso.security.User</class>
+    <class>edu.iit.sat.itmd4515.sspyriso.security.Group</class>
    <!--
     <class>edu.iit.sat.itmd4515.sample.Appointment</class>
     <class>edu.iit.sat.itmd4515.sample.Owner</class>

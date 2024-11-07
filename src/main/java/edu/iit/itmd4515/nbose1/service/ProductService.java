@@ -17,10 +17,17 @@ import java.util.List;
 @Named
 public class ProductService extends AbstractService<Product> {
 
+    /**
+     *
+     */
     public ProductService() {
         super(Product.class);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Product> readAll() {
         return super.readAll("Product.readAll");
     }

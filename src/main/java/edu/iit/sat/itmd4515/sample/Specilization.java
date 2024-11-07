@@ -26,17 +26,32 @@ public class Specilization {
     
     private String name;
     
-
+    /**
+     *
+     */
     public Specilization() {
     }
 
+    /**
+     *
+     * @param name
+     */
     public Specilization(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
+
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
@@ -61,12 +76,21 @@ public class Specilization {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -86,6 +110,10 @@ public class Specilization {
         return Objects.equals(this.id, other.id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Specilization{" + "id=" + id + ", name=" + name + '}';

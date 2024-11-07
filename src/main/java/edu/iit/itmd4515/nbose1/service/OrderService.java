@@ -15,10 +15,17 @@ import java.util.List;
 @Stateless
 public class OrderService extends AbstractService<Order> {
 
+    /**
+     *
+     */
     public OrderService() {
         super(Order.class);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Order> readAll() {
         return super.readAll("Order.readAll");
     }

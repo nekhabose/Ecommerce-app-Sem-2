@@ -27,6 +27,9 @@ public class ProductController {
 
     private Product product;
 
+    /**
+     *
+     */
     public ProductController() {
     }
 
@@ -36,6 +39,10 @@ public class ProductController {
         product = new Product();
     }
 
+    /**
+     *
+     * @return
+     */
     public String saveProduct() {
         LOG.info("Inside ProductController.saveProduct() before calling service: " + product.toString());
         productService.create(product);
@@ -44,10 +51,19 @@ public class ProductController {
     }
 
     // Getters and Setters
+
+    /**
+     *
+     * @return
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     *
+     * @param product
+     */
     public void setProduct(Product product) {
         this.product = product;
     }

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="jakarta.faces.passthrough"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <p>
+            <h:panelGroup layout="block">
+                <h:outputLabel value="Pet Name" for="petName"/>
+                <h:inputText id="petName" value="#{petController.pet.name}"/>
+                
+            </h:panelGroup>
+            </p>
+             <p>
+             <h:panelGroup layout="block">
+                <h:outputLabel value="Pet BD" for="petBirthDate"/>
+                <h:inputText p:type="date" id="petBirthDate" value="#{petController.pet.birthDate}">
+                <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:inputText>
+            </h:panelGroup>
+            </p>
+            
+            <p>
+             <h:panelGroup layout="block">
+                <h:outputLabel value="Pet Type:" for="petType"/>
+                <h:selectOneMenu id="PetType" value="#{petController.pet.type}">
+                    <f:selectItem itemLabel="Cat" itemValue="CAT"/>
+                    <f:selectItem itemLabel="Dog" itemValue="DOG"/>
+                    <f:selectItem itemLabel="Bird" itemValue="BIRD"/>
+                </h:selectOneMenu>
+            </h:panelGroup>
+            </p>
+            
+            <h:commandButton value="Create Pet" action="#{petController.savePet()}"/>
+        </h:form>
+    </h:body>
+</html>

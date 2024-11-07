@@ -38,6 +38,9 @@ public class StartupService {
     @EJB
     private ProductService productService;
 
+    /**
+     *
+     */
     @PostConstruct
     public void init() {
         LOG.info("Initializing the database with sample data.");

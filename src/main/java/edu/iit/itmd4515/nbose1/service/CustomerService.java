@@ -16,10 +16,17 @@ import java.util.List;
 @Stateless
 public class CustomerService extends AbstractService<Customer> {
 
+    /**
+     *
+     */
     public CustomerService() {
         super(Customer.class);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Customer> readAll() {
         return super.readAll("Customer.readAll");
     }

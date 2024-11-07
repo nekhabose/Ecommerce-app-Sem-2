@@ -4,6 +4,7 @@
  */
 package edu.iit.sat.itmd4515.sample;
 
+import edu.iit.itmd4515.nbose1.security.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -73,20 +74,56 @@ public class Vet {
         this.appointments = appointments;
     }
 
-    
+    /**
+     *
+     */
     public Vet()
     {
     }
+    
+    @OneToOne
+    @JoinColumn(name = "USERNAME")
+    private User user;
 
+    /**
+     * Get the value of user
+     *
+     * @return the value of user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @param user new value of user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     *
+     * @param name
+     */
     public Vet(String name) {
         this.name = name;
         
     }
+
+    /**
+     *
+     * @return
+     */
     public Specilization getSpecilization() {
         return specilization;
     }
 
-    
+    /**
+     *
+     * @param specilization
+     */
     public void setSpecilization(Specilization specilization) {
         this.specilization = specilization;
     }
@@ -94,22 +131,43 @@ public class Vet {
     
 
     // Getters and setters
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -117,6 +175,11 @@ public class Vet {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -136,6 +199,10 @@ public class Vet {
         return Objects.equals(this.id, other.id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Vet{" + "id=" + id + ", name=" + name + ", specilization=" + specilization + '}';

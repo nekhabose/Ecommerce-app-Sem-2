@@ -13,6 +13,10 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
+/**
+ *
+ * @author Nekha
+ */
 @Entity
 @NamedQuery(name = "OrderLine.readAll", query = "SELECT ol FROM OrderLine ol")
 public class OrderLine {
@@ -34,52 +38,102 @@ public class OrderLine {
     private int quantity;
 
     // Constructors 
+
+    /**
+     *
+     */
     public OrderLine() {
     }
 
+    /**
+     *
+     * @param product
+     * @param quantity
+     */
     public OrderLine(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 
     // Getters and Setters
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Order getOrder() {
         return order;
     }
 
+    /**
+     *
+     * @param order
+     */
     public void setOrder(Order order) {
         this.order = order;
     }
 
+    /**
+     *
+     * @return
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     *
+     * @param product
+     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     *
+     * @param quantity
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "OrderLine{" + "id=" + id + ", quantity=" + quantity + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -87,6 +141,11 @@ public class OrderLine {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

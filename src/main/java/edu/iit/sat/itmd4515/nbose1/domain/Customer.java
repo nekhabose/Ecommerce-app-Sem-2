@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ *
+ * @author Nekha
+ */
 @Entity
 @NamedQuery(name = "Customer.readAll", query = "SELECT c FROM Customer c")
 public class Customer {
@@ -35,62 +39,120 @@ public class Customer {
     private List<Order> orders = new ArrayList<>();
 
     // Constructors
+
+    /**
+     *
+     */
     public Customer() {
     }
 
+    /**
+     *
+     * @param name
+     * @param email
+     */
     public Customer(String name, String email) {
         this.name = name;
         this.email = email;
     }
 
     // Getters and Setters
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Order> getOrders() {
         return orders;
     }
 
+    /**
+     *
+     * @param orders
+     */
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
+    /**
+     *
+     * @param order
+     */
     public void addOrder(Order order) {
         orders.add(order);
         order.setCustomer(this);
     }
 
+    /**
+     *
+     * @param order
+     */
     public void removeOrder(Order order) {
         orders.remove(order);
         order.setCustomer(null);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Customer{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -98,6 +160,11 @@ public class Customer {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

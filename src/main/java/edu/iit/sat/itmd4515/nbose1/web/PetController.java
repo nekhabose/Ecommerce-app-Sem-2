@@ -22,9 +22,9 @@ public class PetController {
     
     private Pet pet;
 
-   
-   
-
+    /**
+     *
+     */
     public PetController()
     {}
     
@@ -36,17 +36,29 @@ public class PetController {
         pet = new Pet();
     }
     
+    /**
+     *
+     * @return
+     */
     public String savePet()
     {
      LOG.info("Inside PetController.savePet() with" + pet.toString());   
      
-     return "confirmation.xhtml";
+     return "createPetConfirmation.xhtml";
     }
-     public Pet getPet() {
+
+    /**
+     *
+     * @return
+     */
+    public Pet getPet() {
         return pet;
     }
 
-    
+    /**
+     *
+     * @param pet
+     */
     public void setPet(Pet pet) {
         this.pet = pet;
     }

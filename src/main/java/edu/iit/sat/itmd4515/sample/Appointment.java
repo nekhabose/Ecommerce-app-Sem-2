@@ -68,52 +68,78 @@ public class Appointment {
     @JoinColumn(name = "PET_ID")
     private Pet pet;
     
-
-    
+    /**
+     *
+     * @return
+     */
     public Owner getOwner() {
         return owner;
     }
    
-
-    
+    /**
+     *
+     * @return
+     */
     public Pet getPet() {
         return pet;
     }
 
-    
+    /**
+     *
+     * @param pet
+     */
     public void setPet(Pet pet) {
         this.pet = pet;
     }
 
-
-    
+    /**
+     *
+     * @return
+     */
     public Vet getVet() {
         return vet;
     }
 
-    
+    /**
+     *
+     * @param vet
+     */
     public void setVet(Vet vet) {
         this.vet = vet;
     }
 
-
-   
+    /**
+     *
+     * @param owner
+     */
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
 
-    
-  
-    
+    /**
+     *
+     */
     public Appointment()
     {
     }
 
+    /**
+     *
+     * @param date
+     * @param time
+     */
     public Appointment(LocalDate date, LocalTime time) {
         this.date = date;
         this.time = time;
     }
-     public void schedAppt(Owner o, Pet p, Vet v) {
+
+    /**
+     *
+     * @param o
+     * @param p
+     * @param v
+     */
+    public void schedAppt(Owner o, Pet p, Vet v) {
         this.owner = o;
         this.vet = v;
         this.pet = p;
@@ -127,6 +153,9 @@ public class Appointment {
         }
     }
 
+    /**
+     *
+     */
     public void cancelAppt() {
 
         if (this.owner.getAppointments().contains(this)) {
@@ -178,15 +207,26 @@ public class Appointment {
         this.date = date;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -194,6 +234,11 @@ public class Appointment {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -213,6 +258,10 @@ public class Appointment {
         return Objects.equals(this.id, other.id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Appointment{" + "id=" + id + ", date=" + date + ", time=" + time + ", owner=" + owner + ", vet=" + vet + ", pet=" + pet + '}';

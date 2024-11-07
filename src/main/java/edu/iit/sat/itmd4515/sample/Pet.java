@@ -59,9 +59,10 @@ public class Pet {
        @ManyToMany(mappedBy = "pets")
        private List<Owner> owners = new ArrayList<>();;
        
-
-     
-       public Pet() {
+    /**
+     *
+     */
+    public Pet() {
       }
     
 
@@ -83,52 +84,86 @@ public class Pet {
         this.owners = owners;
     }
 
-
+    /**
+     *
+     * @param name
+     * @param birthDate
+     * @param type
+     */
     public Pet(String name, LocalDate birthDate, PetType type) {
         this.name = name;
         this.birthDate = birthDate;
         this.type = type;
     }
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
-    
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
  
-     
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
-   
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }  
      
+    /**
+     *
+     * @return
+     */
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    
+    /**
+     *
+     * @param birthDate
+     */
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
-    
+    /**
+     *
+     * @return
+     */
     public PetType getType() {
         return type;
     }
 
-    
+    /**
+     *
+     * @param type
+     */
     public void setType(PetType type) {
         this.type = type;
     }
 
-       
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -136,6 +171,11 @@ public class Pet {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -158,6 +198,10 @@ public class Pet {
         return Objects.equals(this.id, other.id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Pet{" + "id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", type=" + type + '}';
