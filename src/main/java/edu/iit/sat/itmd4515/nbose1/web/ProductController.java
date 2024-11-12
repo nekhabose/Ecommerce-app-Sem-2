@@ -4,7 +4,7 @@
  */
 package edu.iit.sat.itmd4515.nbose1.web;
 
-import edu.iit.itmd4515.nbose1.service.ProductService;
+import edu.iit.sat.itmd4515.nbose1.service.ProductService;
 import edu.iit.sat.itmd4515.nbose1.domain.Product;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;

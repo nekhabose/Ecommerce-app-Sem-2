@@ -4,9 +4,10 @@
  */
 package edu.iit.sat.itmd4515.nbose1.web;
 
-import edu.iit.itmd4515.nbose1.security.User;
+import edu.iit.sat.itmd4515.nbose1.security.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -40,8 +41,8 @@ public class LoginController {
     @Inject SecurityContext securityContext;
 
     // Model
-    private User user;
-
+    
+private User user;
     /**
      *
      */
@@ -50,12 +51,12 @@ public class LoginController {
 
     @PostConstruct
     private void postConstruct() {
-        LOG.info("Inside LoginController.postConstruct()");
+        LOG.info("Inside LoginController.postConstruct() yes");
         user = new User();
     }
 
     // helper method
-
+    
     /**
      *
      * @return
@@ -71,6 +72,8 @@ public class LoginController {
      * @return
      */
     public String doLogin() {
+        
+        LOG.info("Attempting login for user: " + user.getUsername());
 
         HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
@@ -82,19 +85,24 @@ public class LoginController {
         switch(status){
             case SUCCESS:
                 LOG.info(status.toString());
-                break;
+                  return "/welcome.xhtml?faces-redirect=true";
+                  
             case SEND_FAILURE:
-                LOG.info("FAILURE! " + status.toString());
+                LOG.info("FAILURE! "+ status.toString());
                 return "/error.xhtml";
             case NOT_DONE:
                 LOG.info("NOT DONE! " + status.toString());
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login not completed", "Please try again."));
                 return "/error.xhtml";
             case SEND_CONTINUE:
                 LOG.info(status.toString());
                 break;
         }
+       
+     
         
-        return "/welcome.xhtml?faces-redirect=true";
+      return "/welcome.xhtml?faces-redirect=true";
+       
     }
 
     /**
@@ -102,7 +110,7 @@ public class LoginController {
      * @return
      */
     public String doLogout() {
-        LOG.info("LoginController.doLogout()");
+        LOG.info("LoginController.doLogout() called");
         
         HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         try {
@@ -111,7 +119,8 @@ public class LoginController {
             LOG.log(Level.SEVERE, null, ex);
         }
         
-        return "/login.xhtml";
+       
+       return "/login.xhtml?faces-redirect=true";
     }
 
     /**

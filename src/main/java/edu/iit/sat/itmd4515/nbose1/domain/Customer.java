@@ -8,6 +8,7 @@ package edu.iit.sat.itmd4515.nbose1.domain;
  *
  * @author Nekha
  */
+import edu.iit.sat.itmd4515.nbose1.security.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -54,6 +55,28 @@ public class Customer {
     public Customer(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+    
+    @OneToOne
+    @JoinColumn(name = "USERNAME")
+    private User user;
+
+    /**
+     * Get the value of user
+     *
+     * @return the value of user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @param user new value of user
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 
     // Getters and Setters

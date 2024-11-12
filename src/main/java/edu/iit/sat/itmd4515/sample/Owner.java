@@ -4,7 +4,7 @@
  */
 package edu.iit.sat.itmd4515.sample;
 
-import edu.iit.itmd4515.nbose1.security.User;
+import edu.iit.sat.itmd4515.nbose1.security.User;
 import jakarta.persistence.Entity;
 
 /**

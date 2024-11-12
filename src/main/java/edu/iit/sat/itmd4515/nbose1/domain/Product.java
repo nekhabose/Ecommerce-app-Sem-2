@@ -4,10 +4,13 @@
  */
 package edu.iit.sat.itmd4515.nbose1.domain;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -42,7 +45,12 @@ public class Product {
     
     @Min(0)
     private Integer stock;
-
+    
+    
+    
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "seller_id", nullable = false)
+    private Seller seller;
     // Constructors
 
     /**
@@ -53,16 +61,25 @@ public class Product {
 
     /**
      *
+     * @param id
      * @param name
      * @param price
      * @param manufactureDate
      * @param stock
      */
-    public Product(String name, BigDecimal price, Date manufactureDate, Integer stock) {
+   /* public Product(String name, BigDecimal price, Date manufactureDate, Integer stock) {
         this.name = name;
         this.price = price;
         this.manufactureDate = manufactureDate;
         this.stock = stock;
+    }*/
+   public Product( String name, BigDecimal price, Date manufactureDate, Integer stock) {
+        
+        this.name = name;
+        this.price = price;
+        this.manufactureDate = manufactureDate;
+        this.stock = stock;
+     
     }
 
     /**
@@ -144,6 +161,14 @@ public class Product {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
+    // Getter and Setter for the Seller field
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
      
     /**
      *
@@ -151,7 +176,14 @@ public class Product {
      */
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", manufactureDate=" + manufactureDate + ", stock=" + stock + '}';
+        return "Product{" + 
+                "id=" + id + 
+                ", name='" + name + '\'' + 
+                ", price=" + price + 
+                ", manufactureDate=" + manufactureDate + 
+                ", stock=" + stock + 
+                ", seller=" + (seller != null ? seller.getStoreName() : "No Seller") + 
+                '}';
     }
 
     /**

@@ -6,20 +6,25 @@
                 xmlns:h="jakarta.faces.html">
 
     <ui:define name="title">
-        VCMS
+        Welcome
     </ui:define>
 
     <ui:define name="content">
-       Welcome to the Vet Clinic Management System, #{loginController.authenticatedUsername}
+       Welcome to Shopping Universe, #{loginController.authenticatedUsername}
 
         <h:form>
+           
+            
             <ul>
-                <li><h:link outcome="/welcome.xhtml">Home</h:link></li>
-                <li><h:link outcome="/admin/welcome.xhtml">Admin Access</h:link></li>
-                <li><h:link outcome="/owner/welcome.xhtml">Owner Access</h:link></li>
-                <li><h:link outcome="/vet/welcome.xhtml">Vet Access</h:link></li>
-                <li><h:commandLink action="#{loginController.doLogout()}" value="Logout"/></li>
-            </ul>
+                <li><h:link outcome="/admin/adminDashboard.xhtml">Admin Access</h:link></li>
+                <li><h:link outcome="/customer/welcome.xhtml">Customer Access</h:link></li>
+                <li><h:link outcome="/seller/welcome.xhtml">Seller Access</h:link></li>
+                <li><h:commandLink action="#{loginController.doLogout()}" value="Logout" immediate="true"/></li>
+               
+               
+                
+             
+           </ul>
         </h:form>
     </ui:define>
 
