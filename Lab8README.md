@@ -47,8 +47,8 @@ matching roles in web.xml and payara-web.xml with database groups. Testing and t
 ensure each role had the right access.
 
 
-*******Retail-Domain*******
-1)
+**1)**                          **Retail-Domain**
+
 
 I have 3 different Group in my domain. They are CUSTOMER_GROUP, SELLER_GROUP, ADMIN_GROUP
 
@@ -117,21 +117,32 @@ When the login fails due to wrong password
 ![Lab8](./Lab8.17.png)
 
 
-2)
+**2)**
 
 User	Password
+
 nekha	nekha
+
 pranav	pranav
+
 noyal	noyal
+
 admin	admin
 
 
+
 User	Group
+
 nekha	customerGroup
+
 nekha	sellerGroup
+
 nekha	adminGroup
+
 pranav	sellerGroup
+
 noyal	sellerGroup
+
 admin	adminGroup
 
 
@@ -141,8 +152,8 @@ admin	adminGroup
 4. Assigned each role to a group in `StartupService.java`, so users get the right permissions when they log in.
 
 
-3)
-**Discuss your experiences, including any difficulties you had or changes you made**
+
+**3)Discuss your experiences, including any difficulties you had or changes you made**
 
 Setting up role-based security was straightforward initially, but I ran into some issues with the login/logout flow. At first, my doLogout() 
 method was being triggered unexpectedly, which caused automatic logouts after logging in. I realized this was due to the way certain 
