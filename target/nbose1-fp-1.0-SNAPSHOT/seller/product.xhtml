@@ -14,21 +14,21 @@
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Product Name: " for="productName" />
-                    <h:inputText id="productName" value="#{productController.product.name}"/>
+                    <h:inputText id="productName" value="#{sellerCreateProductController.product.name}"/>
                     <h:message for="productName" errorStyle="color: red" />
                 </h:panelGroup>
             </p>
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Price: " for="productPrice" />
-                    <h:inputText id="productPrice" value="#{productController.product.price}"/>
+                    <h:inputText id="productPrice" value="#{sellerCreateProductController.product.price}"/>
                     <h:message for="productPrice" errorStyle="color: red" />
                 </h:panelGroup>
             </p>
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Manufacture Date: " for="productManufactureDate" />
-                    <h:inputText id="productManufactureDate" value="#{productController.product.manufactureDate}">
+                    <h:inputText id="productManufactureDate" value="#{sellerCreateProductController.product.manufactureDate}">
                         <f:convertDateTime pattern="yyyy-MM-dd"/>
                     </h:inputText>
                     <h:message for="productManufactureDate" errorStyle="color: red" />
@@ -37,11 +37,11 @@
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Stock: " for="productStock" />
-                    <h:inputText id="productStock" value="#{productController.product.stock}"/>
+                    <h:inputText id="productStock" value="#{sellerCreateProductController.product.stock}"/>
                     <h:message for="productStock" errorStyle="color: red" />
                 </h:panelGroup>
             </p>
-            <h:commandButton value="Create Product" action="#{productController.saveProduct()}" />
+            <h:commandButton value="Create Product" action="#{sellerCreateProductController.saveProduct()}" />
         </h:form>
     </h:body>
 

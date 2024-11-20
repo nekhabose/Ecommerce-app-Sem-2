@@ -11,21 +11,7 @@
 
     <ui:define name="content">
        Welcome to Shopping Universe, #{loginController.authenticatedUsername}
-
-        <h:form>
-           
-            
-            <ul>
-                <li><h:link outcome="/admin/adminDashboard.xhtml">Admin Access</h:link></li>
-                <li><h:link outcome="/customer/welcome.xhtml">Customer Access</h:link></li>
-                <li><h:link outcome="/seller/welcome.xhtml">Seller Access</h:link></li>
-                <li><h:commandLink action="#{loginController.doLogout()}" value="Logout" immediate="true"/></li>
-               
-               
-                
-             
-           </ul>
-        </h:form>
+    
     </ui:define>
 
 </ui:composition>

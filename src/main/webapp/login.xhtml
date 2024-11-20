@@ -12,12 +12,14 @@
    <ui:define name="content">
         
         <h:messages globalOnly="true" style="color: red;" />
-        <h2>Login</h2>
+        
         <h:form>
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Username: " for="userName" />
-                    <h:inputText id="userName" value="#{loginController.user.username}"/>
+                    <h:inputText binding="#{uname}" id="userName" 
+                                 styleClass="#{uname.valid ? 'form-control' : 'form-control is-invalid'}"
+                                 value="#{loginController.user.username}"/>
                     <h:message for="userName" errorStyle="color: red" />
                 </h:panelGroup>
             </p>
@@ -25,7 +27,9 @@
             <p>
                 <h:panelGroup layout="block">
                     <h:outputLabel value="Password:" for="password" />
-                    <h:inputSecret id="password" value="#{loginController.user.password}"/>
+                    <h:inputSecret binding="#{passwd}" id="password" 
+                                   styleClass="#{passwd.valid ? 'form-control' : 'form-control is-invalid'}"
+                                   value="#{loginController.user.password}"/>
                     <h:message for="password" errorStyle="color: red" />
                 </h:panelGroup>
             </p>

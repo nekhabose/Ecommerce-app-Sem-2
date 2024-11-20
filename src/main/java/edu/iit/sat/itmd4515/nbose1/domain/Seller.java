@@ -7,6 +7,7 @@ package edu.iit.sat.itmd4515.nbose1.domain;
 import edu.iit.sat.itmd4515.nbose1.security.User;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,6 +28,8 @@ import java.util.Objects;
  */
 @Entity
 @NamedQuery(name = "Seller.readAll", query = "SELECT s FROM Seller s")
+//@NamedQuery(name = "Seller.findByUsername", query = "select s from Seller s where s.user.username = :uname")
+ @NamedQuery(name = "Seller.findByUsername", query = "select s from Seller s LEFT JOIN FETCH s.products where s.user.username = :uname")
 
 public class Seller {
 
@@ -43,8 +46,10 @@ public class Seller {
     @Size(min = 5, max = 50)
     private String email;
     
+    
+    
     @OneToOne
-    @JoinColumn(name = "USERNAME")
+    @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
     public User getUser() {
@@ -106,6 +111,7 @@ public class Seller {
         products.remove(product);
         product.setSeller(null);
     }
+    
 
     @Override
     public String toString() {

@@ -30,4 +30,9 @@ public class CustomerService extends AbstractService<Customer> {
     public List<Customer> readAll() {
         return super.readAll("Customer.readAll");
     }
+    
+    public Customer findByUsername(String uname){
+        return em.createNamedQuery("Customer.findByUsername", Customer.class).setParameter("uname", uname).getSingleResult();
+    }
+    
 }

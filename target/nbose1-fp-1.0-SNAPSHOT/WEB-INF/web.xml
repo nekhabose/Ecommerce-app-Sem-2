@@ -29,7 +29,11 @@
     
     <error-page>
     <error-code>403</error-code>
-    <location>/error.xhtml</location>
+    <location>/errors/access.xhtml</location>
+    </error-page>
+    
+    <error-page>
+        <location>/errors/error.xhtml</location>
     </error-page>
     
     <security-constraint>

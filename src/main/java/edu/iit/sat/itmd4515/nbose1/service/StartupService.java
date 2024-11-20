@@ -19,6 +19,7 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -72,6 +73,12 @@ public class StartupService {
         customer1.addGroup(sellerGroup);
         customer1.addGroup(adminGroup);
         
+        User customer2 = new User("gayathri", "gayathri");
+        customer2.addGroup(customerGroup);
+
+        User customer3 = new User("ginet", "ginet");
+        customer3.addGroup(customerGroup);
+        
         User seller1 = new User("pranav", "pranav");
         seller1.addGroup(sellerGroup);
         
@@ -84,33 +91,90 @@ public class StartupService {
         admin.addGroup(adminGroup); 
         
         userSvc.create(customer1);
+        userSvc.create(customer2);
+        userSvc.create(customer3);
         userSvc.create(seller1);
         userSvc.create(seller2);
         userSvc.create(admin);
 
         // Sample data initialization for entities
         
-        Seller s1 = new Seller("ArtShop", "art@example.com");
+       /* Seller s1 = new Seller("ArtShop", "art@example.com");
+        s1.setUser(seller1);
+        
         Seller s2 = new Seller("Macrome", "mc@example.com");
-
-         sellerService.create(s1);
-         sellerService.create(s2);
+        s2.setUser(seller2);
+        sellerService.create(s1);
+        sellerService.create(s2);
+         
         // Creating Products
         
         Product p1 = new Product("Table", new BigDecimal("6500.00"), new Date(), 1000);
         p1.setSeller(s1);
+        
+        
+       
         Product p2 = new Product("Desktop", new BigDecimal("1800.00"), new Date(), 9500);
         p2.setSeller(s2);
 
         productService.create(p1);
         productService.create(p2);
+        
+        */
+       Seller s1 = new Seller("ArtShop", "art@example.com");
+       s1.setUser(seller1);
 
+       Product p1 = new Product("Table", new BigDecimal("6500.00"), new Date(), 1000);
+       s1.addProduct(p1);
+
+       Seller s2 = new Seller("Macrome", "mc@example.com");
+       s2.setUser(seller2);
+
+       Product p2 = new Product("Desktop", new BigDecimal("1800.00"), new Date(), 9500);
+       s2.addProduct(p2);
+
+       
+       
+       Seller s3 = new Seller("Test", "test@example.com");
+       s3.setUser(customer1);
+       
+       Product p3 = new Product("Test product", new BigDecimal("18.00"), new Date(), 120);
+       s3.addProduct(p3);
+       
+       sellerService.create(s1);
+       sellerService.create(s2);
+       sellerService.create(s3);
+       
+
+        LOG.info("Products created: " + p1 + ", " + p2);
+        
         // Creating Customers
-        Customer c1 = new Customer("Noyal Joseph Binu", "binujoseph@hawk.iit.edu");
-        Customer c2 = new Customer("Pranav Saji", "saji@hawk.iit.edu");
+       Customer c1 = new Customer("Gayathri", "gayathri@example.com");
+        c1.setUser(customer2);
+
+        Customer c2 = new Customer("Ginet", "ginet@example.com");
+        c2.setUser(customer3);
+
+        Customer c3 = new Customer("Nekha", "nekha@example.com");
+        c3.setUser(customer1);
 
         customerService.create(c1);
         customerService.create(c2);
+        customerService.create(c3);
+        
+       /* LOG.info("Seller 1: " + s1.toString());
+        for (Product product : s1.getProducts()) {
+        LOG.info("Product for Seller 1: " + product.toString());
+        }
+
+        LOG.info("Seller 2: " + s2.toString());
+        for (Product product : s2.getProducts()) {
+        LOG.info("Product for Seller 2: " + product.toString());
+        }
+        //Test Fetching Products for a Seller
+        List<Product> seller1Products = sellerService.findProductsBySeller(s1);
+        LOG.info("Products for Seller 1: " + seller1Products);*/
+
         
         
 

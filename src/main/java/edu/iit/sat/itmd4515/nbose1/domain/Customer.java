@@ -22,6 +22,8 @@ import java.util.Objects;
  */
 @Entity
 @NamedQuery(name = "Customer.readAll", query = "SELECT c FROM Customer c")
+@NamedQuery(name = "Customer.findByUsername", query = "select c from Customer c where c.user.username = :uname")
+
 public class Customer {
 
     @Id

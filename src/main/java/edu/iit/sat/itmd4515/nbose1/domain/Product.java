@@ -67,12 +67,7 @@ public class Product {
      * @param manufactureDate
      * @param stock
      */
-   /* public Product(String name, BigDecimal price, Date manufactureDate, Integer stock) {
-        this.name = name;
-        this.price = price;
-        this.manufactureDate = manufactureDate;
-        this.stock = stock;
-    }*/
+   
    public Product( String name, BigDecimal price, Date manufactureDate, Integer stock) {
         
         this.name = name;
@@ -182,7 +177,7 @@ public class Product {
                 ", price=" + price + 
                 ", manufactureDate=" + manufactureDate + 
                 ", stock=" + stock + 
-                ", seller=" + (seller != null ? seller.getStoreName() : "No Seller") + 
+                ", seller=" + (seller != null && seller.getUser() != null ? seller.getUser().getUsername() : "N/A") +
                 '}';
     }
 
