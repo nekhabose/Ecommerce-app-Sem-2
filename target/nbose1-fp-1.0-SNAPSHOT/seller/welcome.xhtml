@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
@@ -49,26 +49,32 @@
             </h:column>
             
             <h:column>
-                <f:facet name="header">Product Sellers</f:facet>
+                <f:facet name="header">Seller Store name</f:facet>
                   <ui:repeat value="#{pro.seller}" var="sell">
                    <h:outputText value="#{sell.storeName}"/>
                   </ui:repeat> 
             </h:column>
 
             <h:column>
-                <f:facet name="header">Product Seller Usernames</f:facet>
+                <f:facet name="header">Seller Names</f:facet>
                   <ui:repeat value="#{pro.seller}" var="sell"> 
                     <h:outputText value="#{sell.user.username} "/>
                  </ui:repeat>      
             </h:column>
 
+            <h:column>
+                <h:form>
+                    <h:commandButton value="details" action="#{sellerProductController.displayProductDetailsPage(pro)}"/>
+                    <h:commandButton value="edit" action="#{sellerProductController.displayEditProductPage(pro)}"/>
+                    <h:commandButton value="delete" action="#{sellerProductController.displayDeleteProductPage(pro)}"/>
+                </h:form>
+            </h:column>
             
-            
-          
-
-
-
-         </h:dataTable>    
+        </h:dataTable>
+        <h:form>
+        <h:commandButton class="btn btn-lg btn-primary" value="Add Product" action="#{sellerProductController.displayAddProductPage()}" />
+        </h:form>
+        
     </ui:define>
 
 </ui:composition>

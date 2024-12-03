@@ -5,18 +5,6 @@
         <param-value>Development</param-value>
     </context-param>
     
-    <!--<servlet>
-        <servlet-name>FacesServlet</servlet-name>
-        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FacesServlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
-    -->
-    
-    
     <session-config>
         <session-timeout>
             300
@@ -47,27 +35,6 @@
         </auth-constraint>
     </security-constraint>
 
-    <!--<security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Vet Only Content</web-resource-name>
-            <url-pattern>/vet/*</url-pattern>
-            <url-pattern>/welcome.xhtml</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>VET_ROLE</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Owner Only Content</web-resource-name>
-            <url-pattern>/owner/*</url-pattern>
-            <url-pattern>/welcome.xhtml</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>OWNER_ROLE</role-name>
-        </auth-constraint>
-    </security-constraint>-->
     
     <security-constraint>
         <web-resource-collection>

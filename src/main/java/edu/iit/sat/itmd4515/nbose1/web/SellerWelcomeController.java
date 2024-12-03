@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edu.iit.sat.itmd4515.nbose1.web;
-
-import edu.iit.sat.itmd4515.nbose1.domain.Product;
 import edu.iit.sat.itmd4515.nbose1.domain.Seller;
 import edu.iit.sat.itmd4515.nbose1.service.SellerService;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.logging.Logger;
@@ -34,30 +34,16 @@ public class SellerWelcomeController {
     }
 
     @PostConstruct
-    private void postConstruct() {
-
-        String authenticatedUsername = loginController.getAuthenticatedUsername();
-        LOG.info("Authenticated Username: " + authenticatedUsername);
-
-        // Fetch the seller by username
-        seller = sellerService.findByUsername(authenticatedUsername);
-        
-        // Debugging the seller and their products
-        if (seller != null) {
-            LOG.info("Seller found: " + seller.toString());
-            if (seller.getProducts() == null || seller.getProducts().isEmpty()) {
-                LOG.warning("No products associated with this seller.");
-            } else {
-                for (Product product : seller.getProducts()) {
-                    LOG.info("Product: " + product.toString());
-                }
-            }
-        } else {
-            LOG.warning("No seller found for username: " + authenticatedUsername);
-        }
-
+    public void postConstruct() {
+    this.seller = sellerService.findByUsername(loginController.getAuthenticatedUsername());
+    if (this.seller == null) {
+        LOG.warning("No seller found for username: " + loginController.getAuthenticatedUsername());
+        FacesContext.getCurrentInstance().addMessage(null,
+            new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                "No seller found for the logged-in user. Please contact support.", null));
     }
-    
+}
+
     
     
 

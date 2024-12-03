@@ -9,7 +9,6 @@ edu\iit\sat\itmd4515\sample\Pet.class
 edu\iit\sat\itmd4515\nbose1\service\OrderService.class
 edu\iit\sat\itmd4515\nbose1\security\UserService.class
 edu\iit\sat\itmd4515\nbose1\service\ProductService.class
-edu\iit\sat\itmd4515\nbose1\web\SellerCreateProductController.class
 edu\iit\sat\itmd4515\nbose1\web\JSFPhaseListener.class
 edu\iit\sat\itmd4515\nbose1\security\GroupService.class
 edu\iit\sat\itmd4515\nbose1\service\StartupService.class
@@ -19,6 +18,8 @@ edu\iit\sat\itmd4515\nbose1\web\PetController.class
 edu\iit\sat\itmd4515\nbose1\domain\Seller.class
 edu\iit\sat\itmd4515\nbose1\security\User.class
 edu\iit\sat\itmd4515\nbose1\domain\Customer.class
+edu\iit\sat\itmd4515\nbose1\web\SellerProductController.class
+edu\iit\sat\itmd4515\nbose1\converter\DateConverter.class
 edu\iit\sat\itmd4515\nbose1\service\AbstractService.class
 edu\iit\sat\itmd4515\nbose1\web\SellerWelcomeController.class
 edu\iit\sat\itmd4515\nbose1\service\SellerService.class

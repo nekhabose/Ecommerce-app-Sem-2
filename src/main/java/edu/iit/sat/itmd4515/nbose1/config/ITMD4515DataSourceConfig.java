@@ -20,7 +20,8 @@ import jakarta.annotation.sql.DataSourceDefinition;
    password = "itmd4515",
    properties = {
        "zeroDateTimeBehavior=CONVERT_TO_NULL",
-        "useSSL=false"
+        "useSSL=false",
+        "allowPublicKeyRetrieval=true"
    }
 )
 public class ITMD4515DataSourceConfig {

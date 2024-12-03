@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:h="jakarta.faces.html"
+              xmlns:f="jakarta.faces.core"
+              xmlns:ui="jakarta.faces.facelets"
+              xmlns:p="jakarta.faces.passthrough"
+              xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+    <!-- Composite Component Interface -->
+    <cc:interface>
+        <cc:attribute name="product" type="edu.iit.sat.itmd4515.nbose1.domain.Product" required="true" />
+        <cc:attribute name="operation" required="true" shortDescription="One of create, read, update, or delete" type="java.lang.String" />
+        <cc:attribute name="formAction" required="false" method-signature="java.lang.String action()"/>
+    </cc:interface>
+
+    <!-- Composite Component Implementation -->
+    <cc:implementation>
+        <h:form>
+            <ui:fragment rendered="#{not cc.attrs.operation.equalsIgnoreCase('create')}">
+            <p>
+                <h:panelGroup layout="block">
+<!--                    <h:outputLabel value="Product id #{sellerProductController.product.id}" for="productId" />-->
+                    <h:outputLabel value="Product id #{cc.attrs.product.id}" for="productId" />
+                    <h:inputHidden id="productid" value="#{cc.attrs.product.id}" />
+                    <h:message for="productid" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+                </ui:fragment>
+            
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Product Name: " for="productName" />
+                     <h:inputText 
+                        disabled="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        readonly="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        id="productName" 
+                        value="#{cc.attrs.product.name}" />
+                    <h:message for="productName" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+            
+
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Price: " for="productPrice" />
+                    <h:inputText 
+                        disabled="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        readonly="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        id="productPrice" 
+                        value="#{cc.attrs.product.price}" />
+                    <h:message for="productPrice" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+ 
+
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Manufacture Date: " for="productManufactureDate" />
+                    <h:inputText 
+                        disabled="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        readonly="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        
+                        id="productManufactureDate" 
+                        value="#{cc.attrs.product.manufactureDate}">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+
+                    </h:inputText>
+                    <h:message for="productManufactureDate" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+
+
+            <p>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="Stock: " for="productStock" />
+                    <h:inputText 
+                        disabled="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        readonly="#{cc.attrs.operation.equalsIgnoreCase('read') or cc.attrs.operation.equalsIgnoreCase('delete')}"
+                        id="productStock" 
+                        value="#{cc.attrs.product.stock}" />
+                    <h:message for="productStock" errorStyle="color: red" />
+                </h:panelGroup>
+            </p>
+
+
+            <h:commandButton rendered="#{cc.attrs.operation.equalsIgnoreCase('create')}" value="Create Product" action="#{cc.attrs.formAction}" />
+            <h:commandButton rendered="#{cc.attrs.operation.equalsIgnoreCase('update')}" value="Edit Product" action="#{cc.attrs.formAction}" />
+            <h:commandButton rendered="#{cc.attrs.operation.equalsIgnoreCase('delete')}" value="Delete Product" action="#{cc.attrs.formAction}" />
+
+        </h:form>
+    </cc:implementation>
+</html>

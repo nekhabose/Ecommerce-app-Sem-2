@@ -66,18 +66,20 @@ private User user;
         
     }
     
-    public boolean isCustomer(){
+    public boolean isCustomer() {
+        LOG.info("Checking CUSTOMER_ROLE: " + securityContext.isCallerInRole("CUSTOMER_ROLE"));
         return securityContext.isCallerInRole("CUSTOMER_ROLE");
     }
 
-    public boolean isSeller(){
+    public boolean isSeller() {
+        LOG.info("Checking SELLER_ROLE: " + securityContext.isCallerInRole("SELLER_ROLE"));
         return securityContext.isCallerInRole("SELLER_ROLE");
     }
 
-    public boolean isAdmin(){
+    public boolean isAdmin() {
+        LOG.info("Checking ADMIN_ROLE: " + securityContext.isCallerInRole("ADMIN_ROLE"));
         return securityContext.isCallerInRole("ADMIN_ROLE");
     }
-    
     // action methods
 
     /**
@@ -98,7 +100,7 @@ private User user;
         switch(status){
             case SUCCESS:
                 LOG.info(status.toString());
-                  return "/welcome.xhtml?faces-redirect=true";
+                  return "/welcome.xhtml";
                   
             case SEND_FAILURE:
                 LOG.info("FAILURE! "+ status.toString());

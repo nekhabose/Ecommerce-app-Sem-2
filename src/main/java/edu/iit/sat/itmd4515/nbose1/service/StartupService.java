@@ -19,7 +19,6 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
