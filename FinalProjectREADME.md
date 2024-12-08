@@ -151,6 +151,10 @@ Start the Payara Server.
 
 Tool and Library Versions
 
+MySQL Server 8.4
+payara-6.2024.8
+Apache NetBeans IDE 22
+
 **Screen Captures**
 
 User	  Password
@@ -274,51 +278,6 @@ Delete
 Admin
 
 ![FinalProject](./fp3.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Seller Dashboard
-
-Create Product Page
-
-Edit Product Page
-
-Delete Product Confirmation
-
-
-
-
-
-
-
-
 
 
 
