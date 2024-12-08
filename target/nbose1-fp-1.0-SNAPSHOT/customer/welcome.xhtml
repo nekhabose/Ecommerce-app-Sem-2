@@ -13,6 +13,10 @@
     <ui:define name="content">
         <h2>Welcome, #{CustomerWelcomeController.cust.name}</h2>
         <h3>Your email: #{CustomerWelcomeController.cust.email}</h3>
+         <h:form>
+        <h:commandButton value="Browse Products" action="browseProducts.xhtml?faces-redirect=true" />
+        <h:commandButton value="View Cart" action="viewCart.xhtml?faces-redirect=true" />
+         </h:form>
     </ui:define>
 </ui:composition>
 

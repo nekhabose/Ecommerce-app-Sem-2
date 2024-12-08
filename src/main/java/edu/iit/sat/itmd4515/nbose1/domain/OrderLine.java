@@ -1,23 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.iit.sat.itmd4515.nbose1.domain;
-
-/**
- *
- * @author Nekha
- */
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
-/**
- *
- * @author Nekha
- */
 @Entity
+@Table(name = "order_line", uniqueConstraints = @UniqueConstraint(columnNames = {"order_id", "product_id"}))
 @NamedQuery(name = "OrderLine.readAll", query = "SELECT ol FROM OrderLine ol")
 public class OrderLine {
 
@@ -39,17 +27,9 @@ public class OrderLine {
 
     // Constructors 
 
-    /**
-     *
-     */
     public OrderLine() {
     }
 
-    /**
-     *
-     * @param product
-     * @param quantity
-     */
     public OrderLine(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
@@ -57,83 +37,43 @@ public class OrderLine {
 
     // Getters and Setters
 
-    /**
-     *
-     * @return
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public Order getOrder() {
         return order;
     }
 
-    /**
-     *
-     * @param order
-     */
     public void setOrder(Order order) {
         this.order = order;
     }
 
-    /**
-     *
-     * @return
-     */
     public Product getProduct() {
         return product;
     }
 
-    /**
-     *
-     * @param product
-     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getQuantity() {
         return quantity;
     }
 
-    /**
-     *
-     * @param quantity
-     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String toString() {
         return "OrderLine{" + "id=" + id + ", quantity=" + quantity + '}';
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -141,11 +81,6 @@ public class OrderLine {
         return hash;
     }
 
-    /**
-     *
-     * @param obj
-     * @return
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -160,6 +95,4 @@ public class OrderLine {
         final OrderLine other = (OrderLine) obj;
         return Objects.equals(this.id, other.id);
     }
-
-   
 }

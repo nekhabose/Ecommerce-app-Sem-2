@@ -5,13 +5,10 @@ package edu.iit.sat.itmd4515.nbose1.domain;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-/**
- *
- * @author Nekha
- */
+
 import jakarta.persistence.*;
-import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +27,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
@@ -41,6 +39,10 @@ public class Order {
     @Temporal(TemporalType.DATE)
     //@FutureOrPresent
     private Date orderDate;
+    
+    @NotNull
+    @Size(min = 1, max = 20)
+    private String status;
 
     // Constructors
 
@@ -56,6 +58,7 @@ public class Order {
      */
     public Order(Date orderDate) {
         this.orderDate = orderDate;
+        this.status = "CART"; 
     }
 
     // Getters and Setters
@@ -88,6 +91,15 @@ public class Order {
      *
      * @param customer
      */
+    
+    public String getStatus() {
+        return status;
+        
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }

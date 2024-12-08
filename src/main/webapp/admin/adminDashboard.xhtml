@@ -13,6 +13,10 @@
     <ui:define name="content">
        Eager to sell things. You are on track.Go for it, #{loginController.authenticatedUsername}
        
+        <h:form>
+        <h:commandButton value="Create New User" action="/admin/createUser.xhtml?faces-redirect=true" />
+        </h:form>
+       
        <h:dataTable 
             styleClass="table table-striped table-hover"
             value="#{productService.readAll()}" var="pro">
@@ -32,8 +36,10 @@
             </h:column>
            
            <h:column>
-                <f:facet name="header">Product manufacture Date</f:facet>
-                <h:outputText value="#{pro.manufactureDate}"/>
+            <f:facet name="header">Manufacture Date</f:facet>
+            <h:outputText value="#{pro.manufactureDate}">
+                <f:convertDateTime pattern="yyyy-MM-dd" />
+            </h:outputText>
             </h:column>
            
             <h:column>

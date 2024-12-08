@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                template="/WEB-INF/templates/template.xhtml">
+    
+    <ui:define name="title">
+    </ui:define>
+
+    <ui:define name="content">
+        <main class="form-signup w-100 m-auto">
+            <h1 class="h3 mb-3 fw-normal">Create a New Account</h1>
+
+            <h:form>
+                <h:messages globalOnly="true" layout="table" />
+
+                <div class="mb-3">
+                    <h:outputLabel value="Username:" for="username" class="form-label" />
+                    <h:inputText id="username" value="#{signupController.username}" required="true" 
+                                 styleClass="form-control">
+                        <f:passThroughAttribute name="placeholder" value="Enter Username" />
+                    </h:inputText>
+                    <h:message for="username" style="color: red;" />
+                </div>
+
+                <div class="mb-3">
+                    <h:outputLabel value="Password:" for="password" class="form-label" />
+                    <h:inputSecret id="password" value="#{signupController.password}" required="true" 
+                                   styleClass="form-control">
+                        <f:passThroughAttribute name="placeholder" value="Enter Password" />
+                    </h:inputSecret>
+                    <h:message for="password" style="color: red;" />
+                </div>
+                
+                <div class="mb-3">
+                    <h:outputLabel value="Name:" for="name" class="form-label" />
+                    <h:inputText id="name" value="#{signupController.name}" required="true" 
+                                 styleClass="form-control">
+                        <f:passThroughAttribute name="placeholder" value="Enter Your Name" />
+                    </h:inputText>
+                    <h:message for="name" style="color: red;" />
+                </div>
+
+
+                <div class="mb-3">
+                    <h:outputLabel value="Email:" for="email" class="form-label" />
+                    <h:inputText id="email" value="#{signupController.email}" required="true" 
+                                 styleClass="form-control">
+                        <f:passThroughAttribute name="placeholder" value="Enter Your Email" />
+                    </h:inputText>
+                    <h:message for="email" style="color: red;" />
+                </div>
+
+
+                <div class="mb-3">
+                    <h:outputLabel value="Account Type:" for="userType" class="form-label" />
+                    <h:selectOneMenu id="userType" value="#{signupController.userType}" required="true" 
+                                     styleClass="form-select">
+                        <f:selectItem itemLabel="-- Select Account Type --" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="Seller" itemValue="SELLER" />
+                        <f:selectItem itemLabel="Customer" itemValue="CUSTOMER" />
+                    </h:selectOneMenu>
+                    <h:message for="userType" style="color: red;" />
+                </div>
+
+
+                <button type="submit" class="btn btn-primary w-100 py-2" 
+                        value="Sign Up" action="#{signupController.doSignup()}">Sign Up</button>
+
+            </h:form>
+
+
+            <h:link outcome="login.xhtml" value="Already have an account? Login here!" class="mt-3 d-block text-center" />
+        </main>
+    </ui:define>
+</ui:composition>
+
+

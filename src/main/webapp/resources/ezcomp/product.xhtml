@@ -20,7 +20,7 @@
             <ui:fragment rendered="#{not cc.attrs.operation.equalsIgnoreCase('create')}">
             <p>
                 <h:panelGroup layout="block">
-<!--                    <h:outputLabel value="Product id #{sellerProductController.product.id}" for="productId" />-->
+                    <h:outputLabel value="Product id #{sellerProductController.product.id}" for="productId" />
                     <h:outputLabel value="Product id #{cc.attrs.product.id}" for="productId" />
                     <h:inputHidden id="productid" value="#{cc.attrs.product.id}" />
                     <h:message for="productid" errorStyle="color: red" />
@@ -90,4 +90,5 @@
 
         </h:form>
     </cc:implementation>
+
 </html>

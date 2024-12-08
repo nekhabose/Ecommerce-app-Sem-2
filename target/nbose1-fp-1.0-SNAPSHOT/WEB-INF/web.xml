@@ -24,7 +24,7 @@
         <location>/errors/error.xhtml</location>
     </error-page>
     
-    <security-constraint>
+    <!--<security-constraint>
         <web-resource-collection>
             <web-resource-name>Admin Only Content</web-resource-name>
             <url-pattern>/admin/*</url-pattern>
@@ -33,7 +33,21 @@
         <auth-constraint>
             <role-name>ADMIN_ROLE</role-name>
         </auth-constraint>
+    </security-constraint> -->
+    
+    <security-constraint>
+    <web-resource-collection>
+        <web-resource-name>Admin Only Content</web-resource-name>
+        <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>ADMIN_ROLE</role-name>
+    </auth-constraint>
     </security-constraint>
+    
+    <security-role>
+    <role-name>ADMIN_ROLE</role-name>
+    </security-role>
 
     
     <security-constraint>

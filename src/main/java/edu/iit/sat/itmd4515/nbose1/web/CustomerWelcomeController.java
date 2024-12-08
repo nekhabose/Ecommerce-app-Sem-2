@@ -5,7 +5,10 @@
 package edu.iit.sat.itmd4515.nbose1.web;
 
 import edu.iit.sat.itmd4515.nbose1.domain.Customer;
+import edu.iit.sat.itmd4515.nbose1.domain.Product;
 import edu.iit.sat.itmd4515.nbose1.service.CustomerService;
+import edu.iit.sat.itmd4515.nbose1.service.InsufficientStockException;
+import edu.iit.sat.itmd4515.nbose1.service.OrderService;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
@@ -25,15 +28,19 @@ private static final Logger LOG = Logger.getLogger(CustomerWelcomeController.cla
 
     private Customer cust ;
 
-    @Inject LoginController loginController;
-    @EJB CustomerService custSvc;
+    @Inject 
+     private LoginController loginController;
+    @EJB 
+     private CustomerService custSvc;
+    @EJB
+    private OrderService orderService;
     
     public CustomerWelcomeController() {
     }
 
     @PostConstruct
     private void postConstruct() {
-        LOG.info("Inside OwnerWelcomeController.postConstruct with " + loginController.getAuthenticatedUsername() );
+        LOG.info("Inside CustomerWelcomeController.postConstruct with " + loginController.getAuthenticatedUsername() );
         cust = custSvc.findByUsername(loginController.getAuthenticatedUsername());
         if (cust != null) {
             LOG.info("Customer fetched: " + cust.toString());
@@ -50,6 +57,11 @@ private static final Logger LOG = Logger.getLogger(CustomerWelcomeController.cla
 
     public void setCust(Customer cust) {
         this.cust = cust;
+    }
+    
+    public void addToCart(Product product, int quantity) throws InsufficientStockException {
+        LOG.info("Customer " + cust.getId() + " adding product " + product.getId() + " to cart with quantity " + quantity);
+        orderService.addToCart(cust, product, quantity);
     }
 
 }

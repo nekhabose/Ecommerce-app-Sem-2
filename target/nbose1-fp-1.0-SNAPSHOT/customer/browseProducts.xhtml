@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="../WEB-INF/templates/authNtemplate.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core">
+    
+    <ui:define name="title">
+        Browse Products
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:messages globalOnly="true" layout="table" />
+            <h:panelGrid columns="4" cellpadding="5">
+                <h:outputLabel value="Product Name:" for="searchName"/>
+                <h:inputText id="searchName" value="#{customerProductController.searchName}" />
+
+                <h:outputLabel value="Min Price:" for="minPrice"/>
+                <h:inputText id="minPrice" value="#{customerProductController.minPrice}">
+                    <f:convertNumber type="currency" />
+                </h:inputText>
+
+                <h:outputLabel value="Max Price:" for="maxPrice"/>
+                <h:inputText id="maxPrice" value="#{customerProductController.maxPrice}">
+                    <f:convertNumber type="currency" />
+                </h:inputText>
+
+                <h:commandButton value="Search" action="#{customerProductController.searchProducts}" />
+            </h:panelGrid>
+       
+
+        <h:dataTable value="#{customerProductController.products}" var="product" border="1" cellpadding="5" styleClass="table table-striped table-hover">
+            <h:column>
+                <f:facet name="header">Product ID</f:facet>
+                #{product.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Product Name</f:facet>
+                #{product.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{product.price}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Stock</f:facet>
+                #{product.stock}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Add to Cart" action="#{customerProductController.addToCart(product)}" />
+            </h:column>
+        </h:dataTable>
+             </h:form>
+
+        <h:form>
+            <h:commandButton value="View Cart" action="viewCart.xhtml?faces-redirect=true" />
+        </h:form>
+    </ui:define>
+
+</ui:composition>

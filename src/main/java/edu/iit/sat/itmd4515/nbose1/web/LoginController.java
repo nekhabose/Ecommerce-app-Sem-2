@@ -80,7 +80,7 @@ private User user;
         LOG.info("Checking ADMIN_ROLE: " + securityContext.isCallerInRole("ADMIN_ROLE"));
         return securityContext.isCallerInRole("ADMIN_ROLE");
     }
-    // action methods
+   
 
     /**
      *Based on the pattern used in the instructor’s example from Lab 8 materials.
@@ -113,9 +113,7 @@ private User user;
                 LOG.info(status.toString());
                 break;
         }
-       
-     
-        
+         
       return "/welcome.xhtml?faces-redirect=true";
        
     }
@@ -130,6 +128,7 @@ private User user;
         HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         try {
             request.logout();
+            LOG.info("Logout successful.");
         } catch (ServletException ex) {
             LOG.log(Level.SEVERE, null, ex);
         }

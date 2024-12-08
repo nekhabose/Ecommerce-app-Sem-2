@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="../WEB-INF/templates/authNtemplate.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core">
+    
+    <ui:define name="title">
+        Create New User
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:messages globalOnly="true" layout="table" />
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="Username:" for="username" />
+                <h:inputText id="username" value="#{adminUserController.newUser.username}" required="true" />
+
+                <h:outputLabel value="Password:" for="password" />
+                <h:inputSecret id="password" value="#{adminUserController.newUser.password}" required="true" />
+
+                <h:outputLabel value="Group:" for="group" />
+                <h:selectOneMenu id="group" value="#{adminUserController.selectedGroup}" required="true">
+                    <f:selectItem itemLabel="-- Select Group --" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{adminUserController.groups}" var="group" itemValue="#{group.groupName}" itemLabel="#{group.groupName}" />
+                </h:selectOneMenu>
+            </h:panelGrid>
+            
+            <h:commandButton value="Create User" action="#{adminUserController.createUser}" />
+        </h:form>
+    </ui:define>
+
+</ui:composition>

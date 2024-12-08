@@ -42,9 +42,15 @@
                         </ui:fragment>
 
                         <ui:fragment rendered="#{loginController.customer}">
-                            <li class="nav-item">
-                                <h:link class="nav-link" outcome="/customer/welcome.xhtml">Customer Access</h:link>                        
-                            </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link" outcome="/customer/welcome.xhtml">Customer Dashboard</h:link>                        
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link" outcome="/customer/browseProducts.xhtml">Browse Products</h:link>                        
+                        </li>
+                        <li class="nav-item">
+                            <h:link class="nav-link" outcome="/customer/viewCart.xhtml">View Cart</h:link>                        
+                        </li>
                         </ui:fragment>
                     </ul>
 

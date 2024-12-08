@@ -10,6 +10,7 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Named;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.logging.Logger;
 /**
@@ -35,7 +36,41 @@ public class ProductService extends AbstractService<Product> {
      */
     public List<Product> readAll() {
         return super.readAll("Product.readAll");
+        
+        
     }
+    
+    public List<Product> searchProducts(String name, BigDecimal minPrice, BigDecimal maxPrice) {
+        LOG.info("Executing searchProducts with name: " + name + ", minPrice: " + minPrice + ", maxPrice: " + maxPrice);
+        StringBuilder jpql = new StringBuilder("SELECT p FROM Product p WHERE 1=1");
+        
+        if (name != null && !name.trim().isEmpty()) {
+            jpql.append(" AND LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))");
+        }
+        if (minPrice != null) {
+            jpql.append(" AND p.price >= :minPrice");
+        }
+        if (maxPrice != null) {
+            jpql.append(" AND p.price <= :maxPrice");
+        }
+
+        TypedQuery<Product> query = em.createQuery(jpql.toString(), Product.class);
+        
+        if (name != null && !name.trim().isEmpty()) {
+            query.setParameter("name", name);
+        }
+        if (minPrice != null) {
+            query.setParameter("minPrice", minPrice);
+        }
+        if (maxPrice != null) {
+            query.setParameter("maxPrice", maxPrice);
+        }
+
+        List<Product> results = query.getResultList();
+        LOG.info("Found " + results.size() + " products matching criteria.");
+        return results;
+    }
+
     
     
     public void editProductForAuthenticatedSeller(Product product, Seller seller) {

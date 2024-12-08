@@ -99,12 +99,7 @@ public class SellerProductController {
      */
    
     public String displayEditProductPage(Product p) {
-//        if (p == null || p.getId() == null) {
-//            LOG.warning("Product is null or has a null ID!");
-//            FacesContext.getCurrentInstance().addMessage(null,
-//                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Product not found!", "Please select a valid product."));
-//            return "/error.xhtml?faces-redirect=true";
-//        }
+
         this.product = p;
             
         LOG.info("Inside displayEditProductPage with Product: " + product.toString());
@@ -140,15 +135,7 @@ public class SellerProductController {
 
  public String editProduct() {
     try {
-        // Validate that the product and its ID are not null
-//        if (product == null || product.getId() == null) {
-//        if (product == null) {
-//            LOG.severe("Product or Product ID is null. Cannot proceed with editing.");
-//            FacesContext.getCurrentInstance().addMessage(null, 
-//                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid product data.", "Please try again."));
-//            return null;
-//        }
-//        if (product == null || product.getId() == null) {
+        
         if (product == null) {
             
             LOG.severe("Product or Product ID is null. Cannot proceed with editing.");
